@@ -1,5 +1,7 @@
-
+// create a js object to hold quote and author name
 var collection = {quotes: []};
+
+// array of collection of chosen quotes
 var arr = [
   "The most difficult thing is the decision to act. The rest is merely tenacity", "Amelia Earhart",
   "Change is inevitable. Growth is optional.", "John C. Maxwell",
@@ -12,6 +14,7 @@ var arr = [
   "You must manage your thought life daily and then you can manage your life.", "John C. Maxwell"
 ];
 
+// function that adds quotes and author names to object: collection
 function adder(arr) {
   for (var i = 0; i < arr.length; i++) {
     var quoteObj = {};
@@ -23,18 +26,20 @@ function adder(arr) {
 }
 
 adder(arr);
-console.log(collection);
+
 var collectionLength = collection.quotes.length;
 collectionLength--;
 
+// function that generates a random number based on current length of collection
+//object and and then displays corresponding quote & author on the page
 function randomNum() {
-    var x = Math.floor((Math.random() * collectionLength) + 1);
+    var ran_num = Math.floor((Math.random() * collectionLength) + 1);
 
-    var z = document.getElementsByClassName("quote");
-    z[0].innerHTML = "\"" + collection.quotes[x].quote + "\"";
+    var qt = document.getElementsByClassName("quote");
+    qt[0].innerHTML = "\"" + collection.quotes[ran_num].quote + "\"";
 
-    var y = document.getElementsByClassName("author");
-    y[0].innerHTML = "~ " + collection.quotes[x].authName;
+    var auth = document.getElementsByClassName("author");
+    auth[0].innerHTML = "~ " + collection.quotes[ran_num].authName;
 }
 
 randomNum();
